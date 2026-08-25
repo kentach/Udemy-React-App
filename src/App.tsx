@@ -1,11 +1,10 @@
 import "./App.css";
-import ModalWindow from "./components/ModalWindow";
-
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
     <>
-      <ModalWindow/>
+      <Carousel/>
     </>
   );
 }
