@@ -1,0 +1,156 @@
+.form {
+  width: min(100%, 600px);
+  margin: 40px auto;
+  padding: 32px;
+
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.input,
+.textarea {
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background-color: #fff;
+  color: #333;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 12%);
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* 性別 */
+.fieldset {
+  margin: 0 0 24px;
+  padding: 0;
+
+  border: none;
+}
+
+.legend {
+  margin-bottom: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 14px;
+  color: #444;
+
+  cursor: pointer;
+}
+
+.radio {
+  width: 16px;
+  height: 16px;
+
+  accent-color: #2563eb;
+
+  cursor: pointer;
+}
+
+/* 送信ボタン */
+.submitBtn {
+  width: 100%;
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #2563eb;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.submitBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.submitBtn:active {
+  transform: translateY(1px);
+}
+
+.select {
+  width: 100%;
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background-color: #fff;
+  color: #333;
+
+  font-size: 15px;
+
+  cursor: pointer;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.select:hover {
+  border-color: #9ca3af;
+}
+
+.select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 12%);
+}
