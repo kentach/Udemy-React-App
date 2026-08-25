@@ -2,36 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  min-height: 100vh;
+  min-height: 100vh; /* 画面いっぱい */
 }
 
 /* モーダルを開くボタン */
 .openBtn {
   padding: 12px 24px;
-
   border: none;
   border-radius: 8px;
-
   background-color: #2563eb;
   color: #fff;
-
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition:
+  transition: /* transition：その変化をどのくらい滑らかにするか */
     background-color 0.2s ease,
     transform 0.1s ease;
+    /* transform：どう動かす・変形させるか */
 }
 
 .openBtn:hover {
   background-color: #1d4ed8;
-}
-
-.openBtn:active {
-  transform: translateY(1px);
 }
 
 /* モーダル本体 */
