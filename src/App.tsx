@@ -1,10 +1,11 @@
 import "./App.css";
-import TabMenu from "./components/TabMenu";
+import ModalWindow from "./components/ModalWindow";
+
 
 function App() {
   return (
     <>
-      <TabMenu />
+      <ModalWindow/>
     </>
   );
 }

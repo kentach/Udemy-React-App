@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+/* モーダルを開くボタン */
+.openBtn {
+  padding: 12px 24px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #2563eb;
+  color: #fff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.openBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.openBtn:active {
+  transform: translateY(1px);
+}
+
+/* モーダル本体 */
+.modalInner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
+  width: min(90%, 600px);
+  padding: 20px;
+
+  background-color: #fff;
+  border-radius: 12px;
+
+  box-shadow: 0 20px 50px rgb(0 0 0 / 25%);
+}
+
+/* 閉じるボタン */
+.closeBtn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: #fff;
+
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  transform: scale(1.1);
+}
+
+.closeBtn i {
+  color: #333;
+  font-size: 22px;
+}
+
+/* 背景 */
+.modalBackground {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1;
+
+  background-color: rgb(0 0 0 / 55%);
+
+  cursor: pointer;
+}
+
+/* 画像 */
+.image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 8px;
+}
