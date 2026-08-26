@@ -2,7 +2,11 @@ import { useState } from "react";
 import type { Todo } from "../types/Tab";
 import styles from "./Todo.module.css";
 
-const TodoList = () => {
+interface TodoListProps {
+  value: string;
+}
+
+const TodoList = ({ value }: TodoListProps) => {
   const [todoName, setTodoName] = useState(""); // 「今入力欄に入っている文字」の管理
   const [todos, setTodos] = useState<Todo[]>([]); // 追加されたTodoの一覧の管理
   const [editingId, setEditingId] = useState<string | null>(null); //「今どのTodoを編集しているか」idで管理する
@@ -55,77 +59,77 @@ const TodoList = () => {
     setEditName("");
   };
 
+  const filteredTodos = todos.filter((todo) => (
+    todo.name.includes(value) // trueを残す
+  ))
+
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.inputArea}>
-          <input
-            className={styles.input}
-            type="text"
-            value={todoName}
-            onChange={(e) => setTodoName(e.target.value)}
-            placeholder="Todoを入力してください"
-          />
+      <div className={styles.inputArea}>
+        <input
+          className={styles.input}
+          type="text"
+          value={todoName}
+          onChange={(e) => setTodoName(e.target.value)}
+          placeholder="Todoを入力してください"
+        />
 
-          <button className={styles.addButton} onClick={handleAddTodo}>
-            Add
-          </button>
-        </div>
-        <div>
-          <ul className={styles.todoList}>
-            {todos.map((todo) => (
-              
-              <li className={styles.todoItem} key={todo.id}>
-                <div className={styles.todoContent}>
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    checked={todo.isDone}
-                    onChange={() => handleToggleTodo(todo.id)}
-                  />
+        <button className={styles.addButton} onClick={handleAddTodo}>
+          Add
+        </button>
+      </div>
+      <div>
+        <ul className={styles.todoList}>
+          {filteredTodos.map((todo) => (
+            <li className={styles.todoItem} key={todo.id}>
+              <div className={styles.todoContent}>
+                <input
+                  className={styles.checkbox}
+                  type="checkbox"
+                  checked={todo.isDone}
+                  onChange={() => handleToggleTodo(todo.id)}
+                />
 
-                  {editingId === todo.id ?
-                    <>
-                      <input
-                        className={styles.input}
-                        type="text"
-                        value={editName}
-                        onChange={(e) => setEditName(e.target.value)}
-                      />
-                      <button
-                        className={styles.saveButton}
-                        onClick={handleEditSave}
-                      >
-                        保存
-                      </button>
-                    </>
+                {editingId === todo.id ?
+                  <>
+                    <input
+                      className={styles.input}
+                      type="text"
+                      value={editName}
+                      onChange={(e) => setEditName(e.target.value)}
+                    />
+                    <button
+                      className={styles.saveButton}
+                      onClick={handleEditSave}
+                    >
+                      保存
+                    </button>
+                  </>
+                : <>
+                    <span
+                      className={`${styles.todoName} ${todo.isDone ? styles.done : ""}`}
+                    >
+                      {todo.name}
+                    </span>
 
-                  : <>
-                      <span
-                        className={`${styles.todoName} ${todo.isDone ? styles.done : ""}`}
-                      >
-                        {todo.name}
-                      </span>
-
-                      <button
-                        className={styles.editButton}
-                        onClick={() => handleEditTodo(todo)}
-                      >
-                        編集
-                      </button>
-                      <button
-                        onClick={() => handleDeleteTodo(todo.id)}
-                        className={styles.deleteButton}
-                      >
-                        削除
-                      </button>
-                    </>
-                  }
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+                    <button
+                      className={styles.editButton}
+                      onClick={() => handleEditTodo(todo)}
+                    >
+                      編集
+                    </button>
+                    <button
+                      onClick={() => handleDeleteTodo(todo.id)}
+                      className={styles.deleteButton}
+                    >
+                      削除
+                    </button>
+                  </>
+                }
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
